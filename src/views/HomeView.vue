@@ -1,10 +1,10 @@
 <template>
-    <div class="px-10 py-10">
-        <h1 class="text-center">Bảng sản phẩm</h1>
+    <div class="px-10">
+        <h1 class="text-center  py-10">Bảng sản phẩm</h1>
 
         <!-- !table -->
         <div class="text-center">
-            <div>
+            <div class="py-5 text-blue-500">
                 <p>Ten san pham</p>
                 <p>Gia tien</p>
             </div>
