@@ -1,10 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import NewView from './views/NewView.vue';
 </script>
 
 <template>
-  <header>
+  <header class="text-7xl text-center">
     Cửa hàng xịn nhất thế giới
   </header>
   <RouterView />
