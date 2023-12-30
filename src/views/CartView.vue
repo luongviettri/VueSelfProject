@@ -1,0 +1,46 @@
+<template>
+  <div v-if="cart.length == 0">
+    <h1>Giỏ hàng rỗng</h1>
+  </div>
+
+  <div v-else>
+
+    <div v-for="(product, index) in this.cart" :key="index">
+      <div class="border-double border-4 border-indigo-600 py-5 my-2 flex">
+        <p class="mx-2">{{ product.title }}</p>
+        <p class="mx-2">{{ product.price }}</p>
+        <p class="mx-2"> {{ product.quantity }}</p>
+        <div class="mx-2 flex">
+          <button :disabled="product.quantity <= 1" v-on:click="product.quantity--" class="mx-2">-
+          </button>
+          <button v-on:click="product.quantity++" class="mx-2">+</button>
+          <button @click="removeFromBag(product)">Xóa khỏi giỏ hàng</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script>
+
+import useProductStore from '@/stores/productStore.js';
+
+export default {
+  name: 'CartView',
+  computed: {
+    cart() {
+      const productStore = useProductStore();
+      return productStore.cart;
+    }
+  },
+  methods: {
+    removeFromBag(product) {
+      const productID = product.id;
+      //! đẩy lên global state
+      const productStore = useProductStore();
+      productStore.removeFromBag(productID);
+    }
+  }
+};
+</script>
