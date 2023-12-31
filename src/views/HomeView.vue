@@ -1,9 +1,8 @@
 <template>
     <div class="px-10">
         <h1 class="text-center  py-10">Bảng sản phẩm</h1>
-
         <!-- ! products -->
-        <div v-for="(product, index) in this.products" :key="index" class="text-center">
+        <div v-for="(product, index) in products" :key="index" class="text-center">
             <div class="py-5 text-blue-500">
                 <div class=" w-20 h-20 mx-auto pb-40">
                     <img class="object-contain" :src="product.image" alt="product image">
@@ -17,7 +16,6 @@
                         class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded mx-5">Xem
                         chi tiết</button>
                 </router-link>
-
 
                 <button v-if="!isInBag(product)" v-on:click="addToBag(product)"
                     class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
@@ -33,19 +31,13 @@
     </div>
 </template>
 
-<script>
-
+<script lang="ts">
+import type { Product } from "types";
 import axios from "axios";
 import useProductStore from '@/stores/productStore';
 
 export default {
     name: 'HomeView',
-
-    data() {
-        return {
-
-        };
-    },
     computed: {
         products() {
             const productStore = useProductStore();
@@ -53,20 +45,20 @@ export default {
         }
     },
     methods: {
-        addToBag(product) {
+        addToBag(product: Product) {
             // đầu tiên ta thêm số lượng sản phẩm là 1, sau đó đẩy lên global state
             const newProduct = { ...product, quantity: 1 };
             // đẩy lên global state
             const productStore = useProductStore();
             productStore.addToBag(newProduct);
         },
-        removeFromBag(product) {
+        removeFromBag(product: Product) {
             const productID = product.id;
             //! đẩy lên global state
             const productStore = useProductStore();
             productStore.removeFromBag(productID);
         },
-        isInBag(product) {
+        isInBag(product: Product) {
             //b1: lấy giỏ hàng về từ global state
             const productStore = useProductStore();
             const cart = productStore.cart;

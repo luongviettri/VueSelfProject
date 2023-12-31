@@ -18,7 +18,7 @@
         <router-link to="/cart">
           <button class="flex-auto">Giỏ hàng
             <span class="text-red-600">
-              {{ this.cart }}
+              {{ cartLength }}
             </span>
           </button>
         </router-link>
@@ -28,13 +28,13 @@
   </div>
 </template>
 
-<script >
+<script lang="ts">
 import useProductStore from '@/stores/productStore';
 
 export default {
   name: 'Navigation',
   computed: {
-    cart() {
+    cartLength() {
       const productStore = useProductStore();
       const length = productStore.cart.length;
       return length;

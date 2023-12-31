@@ -1,25 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-}
-
-interface Cart {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
-
-interface State {
-  products: Product[];
-  cart: Cart[];
-}
+import type { Product, Cart, State } from "../../types";
 
 const useProductStore = defineStore("product", {
   state: (): State => ({

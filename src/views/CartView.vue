@@ -5,7 +5,7 @@
 
   <div v-else>
 
-    <div v-for="(product, index) in this.cart" :key="index">
+    <div v-for="(product, index) in cart" :key="index">
       <div class="border-double border-4 border-indigo-600 py-5 my-2 flex">
         <p class="mx-2">{{ product.title }}</p>
         <p class="mx-2">{{ product.price }}</p>
@@ -22,9 +22,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 
 import useProductStore from '@/stores/productStore';
+
+import type { Product } from 'types';
+
 
 export default {
   name: 'CartView',
@@ -35,7 +38,7 @@ export default {
     }
   },
   methods: {
-    removeFromBag(product) {
+    removeFromBag(product: Product) {
       const productID = product.id;
       //! đẩy lên global state
       const productStore = useProductStore();
