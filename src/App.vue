@@ -2,6 +2,7 @@
   <header class="px-5">
     <navigation />
   </header>
+
   <RouterView />
 </template>
 
