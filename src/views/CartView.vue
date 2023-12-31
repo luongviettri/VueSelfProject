@@ -27,9 +27,9 @@
 import useProductStore from '@/stores/productStore';
 
 import type { Product } from 'types';
+import { defineComponent } from 'vue';
 
-
-export default {
+export default defineComponent({
   name: 'CartView',
   computed: {
     cart() {
@@ -45,5 +45,5 @@ export default {
       productStore.removeFromBag(productID);
     }
   }
-};
+});
 </script>

@@ -35,8 +35,9 @@
 import type { Product } from "types";
 import axios from "axios";
 import useProductStore from '@/stores/productStore';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
     name: 'HomeView',
     computed: {
         products() {
@@ -66,6 +67,6 @@ export default {
             return cart.find(item => item.id == product.id)
         }
     }
-};
+});
 </script>
 <style scoped></style>

@@ -2,15 +2,22 @@
   "compilerOptions": {
     "target": "es5",
     "strict": true,
-    "module": "es2015",
+    "module": "es2020",
     "moduleResolution": "node",
     "isolatedModules": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/vue-shim.d.ts",
+    "src/router/index.ts",
+    "import-meta.d.ts"
+  ],
   "exclude": ["node_modules"]
 }
