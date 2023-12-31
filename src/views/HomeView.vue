@@ -10,6 +10,15 @@
                 </div>
                 <h1 class="text-2xl">{{ product.title }}</h1>
                 <p class="text-red-400 py-2">${{ product.price }}</p>
+
+                <!-- Thông tin sản phẩm -->
+                <router-link :to="`/detail/${product.id}`">
+                    <button
+                        class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded mx-5">Xem
+                        chi tiết</button>
+                </router-link>
+
+
                 <button v-if="!isInBag(product)" v-on:click="addToBag(product)"
                     class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                     Thêm vào giỏ hàng

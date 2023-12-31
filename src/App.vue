@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="px-5">
     <navigation />
   </header>
   <RouterView />
@@ -37,8 +37,6 @@ export default {
   }
 
 }
-
-
 
 </script>
 
