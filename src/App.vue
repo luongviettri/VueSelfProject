@@ -8,7 +8,7 @@
 <script >
 
 import { RouterLink, RouterView } from 'vue-router';
-import useProductStore from "./stores/productStore.js"
+import useProductStore from '@/stores/productStore';
 import axios from 'axios';
 import Navigation from './components/Navigation.vue';
 

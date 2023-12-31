@@ -28,8 +28,8 @@
   </div>
 </template>
 
-<script>
-import useProductStore from '@/stores/productStore.js';
+<script >
+import useProductStore from '@/stores/productStore';
 
 export default {
   name: 'Navigation',

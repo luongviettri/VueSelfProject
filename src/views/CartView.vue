@@ -24,7 +24,7 @@
 
 <script>
 
-import useProductStore from '@/stores/productStore.js';
+import useProductStore from '@/stores/productStore';
 
 export default {
   name: 'CartView',
